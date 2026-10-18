@@ -177,6 +177,12 @@ a {
     font-size: 21px;
     font-weight: 500;
 }
+/* Hide mobile navigation on desktop */
+.mobile-header,
+.mobile-menu {
+    display: none;
+}
+
 
 /* Responsive Design */
 @media (max-width: 900px) {
@@ -206,74 +212,275 @@ a {
     }
 }
 
-@media (max-width: 600px) {
-    .portfolio {
+
+/* =================================
+   MOBILE PORTFOLIO DESIGN
+   ================================= */
+
+@media screen and (max-width: 600px) {
+
+    body {
+        background: white;
+        color: #292832;
+        overflow-x: hidden;
+    }
+
+    /* Mobile header */
+    .mobile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 20px;
+        background: #17365D;
+        position: relative;
+        z-index: 1001;
+    }
+
+    .desktop-logo {
+        display: none;
+    }
+
+    .mobile-logo {
+        color: white;
+        font-size: 25px;
+        font-weight: 800;
+        font-style: italic;
+        text-decoration: none;
+    }
+
+    .hamburger {
+        background: transparent;
+        border: none;
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    /* Hamburger dropdown */
+    .mobile-menu {
+        display: none;
         flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        width: 50%;
+        padding: 10px 20px;
+        background: #fff;
+        box-shadow: 0 5px 15px #0001;
+        box-sizing: border-box;
+        z-index: 1002;
+                border-radius: 20px;
+
     }
 
-    .logo {
-        top: 12px;
-        left: 20px;
-        font-size: 28px;
+    .mobile-menu.active {
+        display: flex;
     }
 
-    .left-section {
+    .mobile-menu a {
+        color: #292832;
+        text-align: center;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .mobile-menu a:hover {
+        color: #17365D;
+         border-radius: 20px;
+         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        transform: scale(1.1);
+    }
+
+    /* Main layout */
+    .portfolio {
+        display: flex;
+        flex-direction: column;
         width: 100%;
-        min-height: 600px;
-        padding: 110px 25px 80px 75px;
+        min-height: auto;
     }
 
-    .sidebar {
-        left: 20px;
-        top: 200px;
-        gap: 15px;
-    }
-
-    .intro {
-        max-width: 100%;
-    }
-
-    .intro h1 {
-        font-size: 55px;
-    }
-
-    .intro h2 {
-        font-size: 28px;
-        white-space: normal;
-    }
-
-    .intro p {
-        font-size: 18px;
-    }
-
+    /* Profile image first */
     .right-section {
+
+        order: -1;
         width: 100%;
-        min-height: 550px;
+        min-height: 190px;
+        height: 230px;
+        padding: 0;
+        background: #17365D;
+        color: #292832;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
+    /* Hide desktop navigation links */
+    .projects,
+    .feats,
+    .experience-side-link,
+    .bottom-skills,
+    .bottom-link {
+        display: none !important;
+    }
+
+    /* Profile image frame */
     .image-frame {
-        width: 82%;
-        height: 270px;
-        top: 150px;
-        left: 5%;
+        background-color: white;
+        position: absolute;
+        top: 10px;
+        left: 30%;
+        width: 200px;
+        height: 220px;
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .image-frame img {
-        width: 75%;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 48% 48% 45% 45%;
     }
 
-    .experience-side-link {
-        right: 15px;
+    /* Introduction section */
+    .left-section {
+        order: 1;
+        position: relative;
+        width: 100%;
+        min-height: auto;
+        padding:35px 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #faf9fc;
+        color: #292832;
+        animation: none;
     }
 
-    .bottom-skills {
+    /* Social icons beside the profile photo */
+    .sidebar {
+        position: absolute;
+        top: -155px;
+        left: 25px;
+        display: block;
+        z-index: 3;
+
+    }
+
+    .social-icons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 17px;
         font-size: 19px;
-         left: 40%;
     }
-    .bottom-link{
-        left:40%;
+
+    .social-icons a {
+        color: white;
+    }
+
+    /* Intro text */
+    .intro {
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+        z-index: 2;
+    }
+
+    .intro h1 {
+        font-size: 23px;
+        line-height: 1.4;
+        font-weight: 700;
+        text-align: center;
+        color: #292832;
+        animation: none;
+    }
+
+    .intro h2 {
+        font-size: 27px;
+        line-height: 1.35;
+        font-weight: 800;
+        text-align: center;
+        white-space: normal;
+        color: #292832;
+        margin-bottom: 4px;
+        animation: none;
+    }
+
+    .intro p {
+        margin-top: 5px;
+        font-size: 14px;
+        line-height: 1.65;
+        color: #777582;
+        animation: none;
+    }
+
+    /* Buttons */
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        margin-top: 22px;
+        animation: none;
+    }
+
+    .btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 145px;
+        padding: 12px 18px;
+        border: 1px solid #17365D;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 600;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .btn-light {
+        background: #17365D;
+        color: #fff;
+    }
+
+    .btn-light:hover {
+        background: #17365D;
+        color: #fff;
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: #17365D;
+    }
+
+    .btn-outline:hover {
+        background: #17365D;
+        color: #fff;
+    }
+
+    /* Disable desktop hover transforms on mobile */
+    .image-frame:hover img {
+        transform: none;
+        filter: none;
+    }
+
+    /* Prevent unwanted animation positioning */
+    .logo,
+    .intro h1,
+    .intro h2,
+    .intro p,
+    .buttons,
+    .image-frame {
+        animation: none;
     }
 }
+
 
 
 .contact-links {
