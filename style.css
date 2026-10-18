@@ -187,9 +187,13 @@ a {
 
     .sidebar {
         left: 15px;
+        top: 300px;
+        gap: 15px;
     }
+   
 
     .image-frame {
+        top:350px;
         height: 320px;
     }
 
@@ -215,14 +219,14 @@ a {
 
     .left-section {
         width: 100%;
-        min-height: 700px;
+        min-height: 600px;
         padding: 110px 25px 80px 75px;
     }
 
     .sidebar {
         left: 20px;
-        top: 120px;
-        gap: 45px;
+        top: 200px;
+        gap: 15px;
     }
 
     .intro {
@@ -244,13 +248,13 @@ a {
 
     .right-section {
         width: 100%;
-        min-height: 600px;
+        min-height: 550px;
     }
 
     .image-frame {
         width: 82%;
-        height: 360px;
-        top: 90px;
+        height: 270px;
+        top: 150px;
         left: 5%;
     }
 
@@ -264,6 +268,10 @@ a {
 
     .bottom-skills {
         font-size: 19px;
+         left: 40%;
+    }
+    .bottom-link{
+        left:40%;
     }
 }
 
