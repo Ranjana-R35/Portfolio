@@ -1,0 +1,751 @@
+
+/* ========================================
+   GENERAL STYLES
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    /* background-color: #f8f7ff; */
+    background:
+        radial-gradient(ellipse at top left, #e5ddff 0, transparent 35%),
+        radial-gradient(ellipse at bottom right, #e5ddff 0, transparent 35%),
+        #f8f7ff;
+    color: #17365D;
+    overflow-x: hidden;
+}
+
+/* ========================================
+   CERTIFICATIONS SECTION
+======================================== */
+
+.certifications {
+    min-height: 100vh;
+    padding: 10px 4%;
+    animation: pageFadeIn 1s ease both;
+}
+
+/* ========================================
+   BACK BUTTON
+======================================== */
+
+.back-circle {
+    width: 55px;
+    height: 55px;
+    border: 2px solid #17365D;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 30px 30px;
+    animation: slideRight 0.8s ease both;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.back-button {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #17365D;
+    font-size: 22px;
+    text-decoration: none;
+    border-radius: 50%;
+    transition: background-color 0.3s ease,
+                color 0.3s ease,
+                transform 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #17365D;
+    color: #FFFFFF;
+    transform: translateX(-3px);
+}
+
+.back-circle:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px #17365D;
+}
+
+/* ========================================
+   SECTION HEADING
+======================================== */
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+    animation: headingReveal 1s ease 0.2s both;
+}
+
+.subtitle {
+    color: #17365D;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.section-heading h1 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.section-heading h1 span {
+    color: #17365D;
+    display: inline-block;
+    animation: highlightReveal 1s ease 0.6s both;
+}
+
+.description {
+    color: #77728a;
+    font-size: 16px;
+    line-height: 1.6;
+    animation: fadeUp 0.9s ease 0.4s both;
+}
+
+/* ========================================
+   CERTIFICATION CARDS GRID
+======================================== */
+
+.certification-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    max-width: 1400px;
+    margin: auto;
+}
+
+/* ========================================
+   CERTIFICATION CARD ANIMATION
+======================================== */
+
+.certification-card {
+    position: relative;
+    overflow: hidden;
+      background-color: #17365D;
+    background-color: #ffffff;
+    padding: 28px;
+    border: 1px solid #e5dfff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(81, 56, 216, 0.08);
+
+    opacity: 0;
+    animation: cardReveal 0.8s ease forwards;
+
+    transition: transform 0.35s ease,
+                box-shadow 0.35s ease,
+                border-color 0.35s ease;
+}
+
+/* Cards appear one after another */
+
+.certification-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.certification-card:nth-child(2) {
+    animation-delay: 0.35s;
+}
+
+.certification-card:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.certification-card:nth-child(4) {
+    animation-delay: 0.65s;
+}
+
+.certification-card:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+.certification-card:nth-child(6) {
+    animation-delay: 0.95s;
+}
+
+/* Light sweep effect */
+
+.certification-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(
+        110deg,
+        transparent,
+        rgba(104, 69, 216, 0.07),
+        transparent
+    );
+    transform: skewX(-20deg);
+    transition: left 0.65s ease;
+    pointer-events: none;
+}
+
+.certification-card:hover::before {
+    left: 150%;
+}
+
+.certification-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    border-color: #c7b8ff;
+  
+    box-shadow: 0 15px 20px #17365D;
+}
+
+/* ========================================
+   CERTIFICATE ICON
+======================================== */
+
+.certificate-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee9ff;
+    border-radius: 12px;
+    font-size: 25px;
+    margin-bottom: 20px;
+
+    transition: transform 0.4s ease,
+                background-color 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+.certification-card:hover .certificate-icon {
+    transform: rotate(-8deg) scale(1.12);
+    background-color: #e1d7ff;
+    box-shadow: 0 6px 15px rgba(104, 69, 216, 0.15);
+}
+
+/* ========================================
+   CARD CONTENT
+======================================== */
+
+.certification-card h2 {
+    font-size: 21px;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.issuer {
+    color: #17365D;
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 14px;
+}
+
+.details {
+    color: #77728a;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 22px;
+}
+
+/* ========================================
+   CERTIFICATE BUTTON
+======================================== */
+
+.certificate-btn {
+    display: inline-block;
+    padding: 10px 17px;
+    color: #ffffff;
+    background-color: #17365D;
+    border: 2px solid #17365D;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: background-color 0.3s ease,
+                color 0.3s ease,
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.certificate-btn:hover {
+    background-color: #ffffff;
+    color:#17365D;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(104, 69, 216, 0.2);
+}
+
+.certificate-btn:active {
+    transform: scale(0.96);
+}
+
+/* Keyboard accessibility */
+
+.back-button:focus-visible,
+.certificate-btn:focus-visible {
+    outline: 3px solid #a895ff;
+    outline-offset: 4px;
+}
+
+/* ========================================
+   KEYFRAME ANIMATIONS
+======================================== */
+
+/* Whole page fades in */
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Back button enters from the left */
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Heading moves upward */
+
+@keyframes headingReveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Highlighted heading appears */
+
+@keyframes highlightReveal {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Description fades upward */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Cards enter from below */
+
+@keyframes cardReveal {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   TABLET RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+    .certification-container {
+        gap: 20px;
+    }
+
+    .certification-card {
+        padding: 23px;
+    }
+
+    .section-heading h1 {
+        font-size: 34px;
+    }
+}
+
+/* ========================================
+   MOBILE RESPONSIVE
+======================================== */
+
+@media (max-width: 650px) {
+    .certifications {
+        padding: 20px 6% 40px;
+    }
+
+    .back-circle {
+        width: 48px;
+        height: 48px;
+        margin: 10px 0 30px;
+    }
+
+    .back-button {
+        width: 34px;
+        height: 34px;
+        font-size: 20px;
+    }
+
+    .section-heading {
+        margin-bottom: 30px;
+    }
+
+    .section-heading h1 {
+        font-size: 30px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .certification-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .certification-card {
+        padding: 23px;
+    }
+
+    .certification-card h2 {
+        font-size: 19px;
+    }
+}
+
+/* ========================================
+   REDUCED MOTION ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .certification-card {
+        opacity: 1;
+    }
+}
+
+/* ========================================
+   CODING PROFILES SECTION
+======================================== */
+
+.coding-profiles {
+    width: 100%;
+    min-height: 100vh;
+    padding: 10px 4%;
+    color: #17365D;
+}
+
+/* Section heading */
+
+.coding-profiles .section-heading {
+    text-align: center;
+    margin-bottom: 20px;
+    animation: profileHeadingReveal 0.8s ease both;
+}
+
+.coding-profiles .section-heading h1 {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.coding-profiles .section-heading h1 span {
+    color: #17365D;
+}
+
+.coding-profiles .description {
+    color: #77728a;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* Profiles grid */
+
+.profiles-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Profile cards */
+
+.profile-card {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    background: #ffffff;
+    padding: 28px;
+    border: 1px solid #dce5f0;
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(23, 54, 93, 0.08);
+
+    opacity: 0;
+    animation: profileCardReveal 0.7s ease forwards;
+
+    transition: transform 0.35s ease,
+                box-shadow 0.35s ease,
+                border-color 0.35s ease;
+}
+
+/* Staggered entrance */
+
+.profile-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.profile-card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.profile-card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* Light sweep */
+
+.profile-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 70%;
+    height: 100%;
+
+    background: linear-gradient(
+        110deg,
+        transparent,
+        rgba(23, 54, 93, 0.08),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+    transition: left 0.65s ease;
+    pointer-events: none;
+}
+
+.profile-card:hover::before {
+    left: 150%;
+}
+
+/* Hover effect */
+
+.profile-card:hover {
+    transform: translateY(-8px);
+    border-color: #17365D;
+    box-shadow: 0 15px 30px rgba(23, 54, 93, 0.18);
+}
+
+/* Profile icons */
+
+.profile-icon {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #edf2f8;
+    color: #17365D;
+    border-radius: 13px;
+
+    font-size: 27px;
+    margin-bottom: 20px;
+
+    transition: transform 0.35s ease,
+                background-color 0.35s ease,
+                color 0.35s ease;
+}
+
+.profile-card:hover .profile-icon {
+    transform: rotate(-6deg) scale(1.1);
+    background: #17365D;
+    color: #ffffff;
+}
+
+/* Card titles */
+
+.profile-card h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: #17365D;
+}
+
+/* Card descriptions */
+
+.profile-description {
+    color: #77728a;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+/* Profile buttons */
+
+.profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    padding: 11px 17px;
+
+    background: #17365D;
+    color: #ffffff;
+    border: 2px solid #17365D;
+    border-radius: 7px;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: background-color 0.3s ease,
+                color 0.3s ease,
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.profile-btn:hover {
+    background: #ffffff;
+    color: #17365D;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(23, 54, 93, 0.15);
+}
+
+.profile-btn:active {
+    transform: scale(0.96);
+}
+
+.profile-btn:focus-visible {
+    outline: 3px solid #8daed6;
+    outline-offset: 4px;
+}
+
+/* Animations */
+
+@keyframes profileHeadingReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes profileCardReveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+    .profiles-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .coding-profiles .section-heading h1 {
+        font-size: 34px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .coding-profiles {
+        padding: 35px 6%;
+    }
+
+    .coding-profiles .section-heading h1 {
+        font-size: 30px;
+    }
+
+    .coding-profiles .description {
+        font-size: 14px;
+    }
+
+    .profiles-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .profile-card {
+        padding: 23px;
+    }
+
+    .profile-card h2 {
+        font-size: 20px;
+    }
+}
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .coding-profiles *,
+    .coding-profiles *::before,
+    .coding-profiles *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .profile-card {
+        opacity: 1;
+    }
+}

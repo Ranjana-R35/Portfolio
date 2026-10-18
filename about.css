@@ -1,0 +1,346 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+         background:
+        radial-gradient(ellipse at top left, #e5ddff 0, transparent 35%),
+        radial-gradient(ellipse at bottom right, #e5ddff 0, transparent 35%),
+        #f8f7ff;
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+/* Back Button */
+.back-circle {
+    width: 55px;
+    height: 55px;
+    border: 2px solid #17365D;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 30px 0;
+    animation: backButtonEntry 0.8s ease-out both;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.back-button {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #17365D;
+    font-size: 22px;
+    text-decoration: none;
+    border-radius: 50%;
+    transition: background-color 0.3s ease,
+                color 0.3s ease;
+}
+.back-button i {
+    transition: transform 0.3s ease;
+}
+.back-button:hover {
+    background: #17365d;
+    color: #fff;
+}
+.back-button:hover i {
+    transform: translateX(-4px);
+}
+
+.back-circle:hover {
+    transform: translateY(-4px) rotate(-5deg);
+    box-shadow: 0 6px 18px #17365D;
+}
+
+/* Main Layout */
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    max-width: 1500px;
+    padding: 10px 20px 10px;
+  
+}
+
+/* About Card */
+.about-card {
+    background: #17365D;
+    border: 1px solid white;
+    border-radius: 24px;
+    color: #FFFFFF;
+    padding: 32px;
+    opacity: 0;
+    animation: slideInLeft 0.9s ease-out 0.2s forwards;
+    transition: transform 0.4s ease,
+                box-shadow 0.4s ease,
+                border-color 0.4s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px #17365D;
+}
+
+.about-card h1 {
+    font-size: 30px;
+    line-height: 1.4;
+    margin-bottom: 22px;
+    color: #FFFFFF;
+}
+
+.about-card h1 span {
+    color: #00d9f5;
+    display: inline-block;
+    animation: nameGlow 2.5s ease-in-out infinite alternate;
+}
+
+.about-card p {
+    color: #F5F5F5;
+    font-size: 16px;
+    margin-bottom: 22px;
+}
+
+.about-card .education {
+    font-size: 14px;
+    line-height: 2;
+    margin-bottom: 0;
+}
+
+/* Technical Expertise */
+.expertise-section h2 {
+    font-size: 29px;
+    margin-bottom: 18px;
+    color: #17365D;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.5s forwards;
+}
+
+/* Expertise Grid */
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* Expertise Cards */
+.expertise-card {
+    background: #FFFFFF;
+    border: 1px solid #dce3ed;
+    border-radius: 20px;
+    padding: 20px;
+    min-height: 220px;
+    opacity: 0;
+    animation: fadeInUp 0.7s ease-out forwards;
+    transition: transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+}
+
+/* Staggered entrance animation */
+.expertise-card:nth-child(1) {
+    animation-delay: 0.6s;
+}
+
+.expertise-card:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+.expertise-card:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.expertise-card:nth-child(4) {
+    animation-delay: 1.2s;
+}
+
+/* Highlight Card */
+.expertise-card.highlight {
+    border-color: #17365D;
+}
+
+/* Card Hover */
+.expertise-card:hover {
+    transform: translateX(18px);
+    box-shadow: 0 12px 12px #17365D;
+    border:2px solid #17365D;
+}
+
+/* Icons */
+.card-icon {
+    display: inline-block;
+    font-size: 35px;
+    margin-bottom: 8px;
+    transition: transform 0.35s ease;
+}
+
+.expertise-card:hover .card-icon {
+    transform: translateY(-5px) rotate(-8deg) scale(1.1);
+}
+
+.expertise-card h3 {
+    font-size: 19px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    color: #17365D;
+}
+
+.expertise-card p {
+    color: #444444;
+    font-size: 14px;
+    line-height: 2;
+}
+
+/* Icon Colors */
+.orange {
+    color: #ff7628;
+}
+
+.cyan {
+    color: #00a9c0;
+}
+
+.green {
+    color: #008f58;
+}
+
+.purple {
+    color: #9250c9;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-45px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes backButtonEntry {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes nameGlow {
+    from {
+        text-shadow: 0 0 0 rgba(0, 217, 245, 0);
+    }
+
+    to {
+        text-shadow: 0 0 12px rgba(0, 217, 245, 0.45);
+    }
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 25px;
+    }
+
+    .expertise-section h2 {
+        font-size: 27px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+    .back-circle {
+        width: 48px;
+        height: 48px;
+        margin: 15px 20px 0;
+    }
+
+    .back-button {
+        width: 34px;
+        height: 34px;
+        font-size: 19px;
+    }
+
+    .about-container {
+        padding: 20px 15px 30px;
+        gap: 30px;
+    }
+
+    .about-card {
+        padding: 24px 20px;
+        border-radius: 18px;
+    }
+
+    .about-card h1 {
+        font-size: 26px;
+    }
+
+    .about-card p {
+        font-size: 14px;
+    }
+
+    .expertise-section h2 {
+        font-size: 24px;
+    }
+
+    .expertise-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .expertise-card {
+        min-height: auto;
+        padding: 24px;
+    }
+
+    .expertise-card:hover {
+        transform: translateY(-4px);
+    }
+}
+
+/* Accessibility: Reduce motion when requested */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    .about-card,
+    .expertise-section h2,
+    .expertise-card {
+        opacity: 1;
+    }
+}
