@@ -304,8 +304,8 @@ a {
 
         order: -1;
         width: 100%;
-        min-height: 220px;
-        height: 230px;
+        min-height: 250px;
+        /* height: 230px; */
         padding: 0;
         background: #17365D;
         color: #292832;
@@ -353,8 +353,8 @@ a {
         order: 1;
         position: relative;
         width: 100%;
-        min-height: 220px;
-        padding:40px 25px;
+        min-height: 250px;
+        padding:45px 25px;
         display: flex;
         flex-direction: column;
         align-items: center;
